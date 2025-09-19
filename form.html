@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22200514 이상헌</title>
+
+    <style>
+        input[name=myInput]{
+            padding: 6px;
+            width: 20%;
+            border-radius: 5px;
+        }
+        button[name=addBtn]{
+            color: white;
+            background-color: blue;
+            border: 0px;
+            width: 6%;
+        }
+        button[name=delBtn]{
+            color: white;
+            background-color:green;
+            border: 0px;
+            width: 6%;
+        }
+        button:hover{
+            background-color: rgb(95, 95, 95);
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Web Page</h1>
+    <input type="text" id="myInput" name= "myInput" placeholder="input word to add">
+    <button id="addBtn" name="addBtn">제출</button>
+    <button id="delBtn" name="delBtn">삭제</button>
+
+    <ul id="list"></ul>
+
+    <script>
+        let input = document.getElementById("myInput");
+        let addButton = document.getElementById("addBtn");
+        let delButton = document.getElementById("delBtn");
+        let list = document.getElementById("list");
+
+        addButton.addEventListener("click", function(){
+            if (input.value.trim() !== ""){
+                let li = document.createElement("li");
+                li.textContent = input.value;
+                list.appendChild(li);
+                input.value = "";
+            }
+        })
+
+        delButton.addEventListener("click", function(){
+            list.innerHTML = "";
+        }
+        )
+    </script>
+</body>
+</html>
